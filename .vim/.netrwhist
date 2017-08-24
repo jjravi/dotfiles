@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/john/.vim/plugged/vim-notes/misc/notes/shadow'
+let g:netrw_dirhist_2='/home/john/.vim/plugged/vim-notes/misc/notes'
+let g:netrw_dirhist_3='/home/john/.vim/plugged/vim-notes/misc/notes/user'
+let g:netrw_dirhist_4='/home/john/.vim/plugged/vim-notes/misc/notes'
+let g:netrw_dirhist_5='/home/john/.vim/plugged/vim-notes/misc/notes/shadow'
+let g:netrw_dirhist_6='/home/john/csc230/csc230-002-55/exercise16'
+let g:netrw_dirhist_7='/etc/X11'
+let g:netrw_dirhist_8='/home/jjravi/research/tools'
