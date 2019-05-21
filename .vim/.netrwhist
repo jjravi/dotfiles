@@ -1,2 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/afs/unity.ncsu.edu/users/j/jjravi/phi_template'
+let g:netrw_dirhist_2='/afs/unity.ncsu.edu/users/j/jjravi/phi_pthread_template'
+let g:netrw_dirhist_3='/home/jjravi/phi_template'
+let g:netrw_dirhist_4='/home/jjravi/phi_template_latest'
+let g:netrw_dirhist_5='/afs/unity.ncsu.edu/users/j/jjravi/ece563/project2/testcases'
+let g:netrw_dirhist_6='/home/jjravi/rodinia_3.1/cuda/pathfinder'
+let g:netrw_dirhist_7='/home/shared_jjravi_hwu16/PACT18'
+let g:netrw_dirhist_8='/usr/include/rdma'
+let g:netrw_dirhist_9='/afs/unity.ncsu.edu/users/j/jjravi/cycles'

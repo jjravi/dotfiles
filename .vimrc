@@ -21,23 +21,51 @@ syntax on
 colorscheme jr-color 
 
 " enable mouse support
-set mouse=a
+" set mouse=a
+
 
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 
-" airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" additional syntax highlighting 
+Plug 'vim-cpp/vim-cpp'
+
+" Note-taking in Vim
+Plug 'vimwiki/vimwiki'
+
+" Calendar plugin
+Plug 'mattn/calendar-vim'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Initialize plugin system
 call plug#end()
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '>'
-set laststatus=2
+" vimwiki stuff " 
+" Change directory and use Markdown syntax
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
-"Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+" let g:vimwiki_list = [ 
+"      \{'path': '~/Documents/VimWiki/personal.wiki'}, 
+"      \{'path': '~/Documents/VimWiki/tech.wiki'} 
+"      \]
+"au BufRead,BufNewFile *.wiki set filetype=vimwiki 
+":autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
+"function! ToggleCalendar() 
+"  execute ":Calendar" 
+"  if exists("g:calendar_open")
+"    if g:calendar_open == 1 
+"      execute "q" 
+"      unlet g:calendar_open 
+"    else
+"      g:calendar_open = 1 
+"    end 
+"  else 
+"    let g:calendar_open = 1 
+"  end 
+"endfunction
+":autocmd FileType vimwiki map c :call ToggleCalendar()
+"
