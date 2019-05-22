@@ -116,3 +116,18 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+#export LD_LIBRARY_PATH="/home/jjravi/MATLAB/dip/Linuxa64/lib/"
+
+#export MATLABROOT=/home/jjravi/MATLAB/R2017a
+
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+PATH=${CUDA_HOME}/bin:${PATH}
+export PATH
+
+# intel compiler
+source /home/jjravi/intel/bin/compilervars.sh intel64
+
+# added by Anaconda3 installer
+export PATH="/home/jjravi/anaconda3/bin:$PATH"
