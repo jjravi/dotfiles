@@ -197,8 +197,10 @@ set shiftwidth=2
 
 "" folding
 "set foldmethod=syntax
-""set foldmethod=indent
-""set foldlevel=1
+set foldmethod=indent
+set foldnestmax=10
+"set nofoldenable
+"set foldlevel=2
 ""set foldclose=all
 ""
 "set foldnestmax=1
@@ -239,6 +241,9 @@ Plug 'vim-airline/vim-airline-themes'
 " c++ additional syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+" json
+Plug 'elzr/vim-json'
+
 " Initialize plugin system
 call plug#end()
 
@@ -255,4 +260,15 @@ let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
 " }}}
 
+" Speedup start time by excluding X11
+set clipboard=exclude:.*
+
+" the magic is the ‘;’ at end. it will make vim tags file search go up from
+" " current directory until it finds one.
+set tags=tags;
+
+set tabpagemax=30
+
+set shortmess-=S
+map ,* *<C-O>:%s///gn<CR>
 
