@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;14m\]\u\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\[\033[38;5;9m\]λ\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;14m\]\u\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\[\033[38;5;9m\]>\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -121,13 +121,24 @@ fi
 
 #export MATLABROOT=/home/jjravi/MATLAB/R2017a
 
-export CUDA_HOME=/usr/local/cuda
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
-PATH=${CUDA_HOME}/bin:${PATH}
-export PATH
+#export CUDA_HOME=/usr/local/cuda
+#export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
+#PATH=${CUDA_HOME}/bin:${PATH}
+#export PATH
 
 # intel compiler
-source /home/jjravi/intel/bin/compilervars.sh intel64
+#source /opt/intel/bin/compilervars.sh intel64
+#export PATH=/opt/intel/vtune_amplifier/bin64/:$PATH
+#source /home/jjravi/intel/bin/compilervars.sh intel64
 
-# added by Anaconda3 installer
-export PATH="/home/jjravi/anaconda3/bin:$PATH"
+# gsoc2020, gcc build
+#export LD_LIBRARY_PATH=/home/jjravi/gsoc2020/gmp-6.2.0/build/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/home/jjravi/gsoc2020/mpc-1.1.0/build/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/home/jjravi/gsoc2020/mpfr-4.0.2/build/lib:$LD_LIBRARY_PATH
+#export DEJAGNULIBS=/home/jjravi/gsoc2020/dejagnu/build/share/dejagnu
+#export PATH=/home/jjravi/gsoc2020/dejagnu/build/bin/:$PATH
+
+#gcc
+#export PATH=/home/jjravi/gsoc2020/gcc_modules/build/install/bin:$PATH
+#export LD_LIBRARY_PATH=/home/jjravi/gsoc2020/gcc_modules/build/install/lib:$LD_LIBRARY_PATH
+
