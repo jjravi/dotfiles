@@ -199,8 +199,7 @@ set shiftwidth=2
 "set foldmethod=syntax
 set foldmethod=indent
 set foldnestmax=10
-"set nofoldenable
-"set foldlevel=2
+""set foldlevel=1
 ""set foldclose=all
 ""
 "set foldnestmax=1
@@ -271,4 +270,23 @@ set tabpagemax=30
 
 set shortmess-=S
 map ,* *<C-O>:%s///gn<CR>
+
+" enable local dir vimrc
+set exrc
+
+" enable relative numbers for focused view
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+"autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold
+"highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+set cursorline
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+
 

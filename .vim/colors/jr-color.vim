@@ -31,6 +31,10 @@ if &t_Co > 255
 
   hi Cursor          ctermfg=16  ctermbg=253
 
+  "au CursorMoved * exe "highlight CursorLineNr guibg=#" . printf('%02x%02x%02x', 90 + line('.') * (255 - 90) / line('$'), 255 - line('.') * (255 - 90) / line('$'), 90)
+  "hi CursorLineNr    term=bold gui=bold guifg=black
+  "hi CursorLineNr    ctermfg=67  ctermbg=16
+
   " debugging statements
   hi Debug           ctermfg=225               cterm=bold
 
