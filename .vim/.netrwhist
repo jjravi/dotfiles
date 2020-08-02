@@ -1,12 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
-let g:netrw_dirhist_2='/home/jjravi/gpu-bandwidth/tmp'
-let g:netrw_dirhist_1='/home/jjravi/gpu-bandwidth/tmp/nvidia_version'
-let g:netrw_dirhist_0='/home/jjravi/NVIDIA_CUDA-10.2_Samples/common/inc'
-let g:netrw_dirhist_9='/home/jjravi/NVIDIA_CUDA-10.2_Samples/common'
-let g:netrw_dirhist_8='/home/jjravi/NVIDIA_CUDA-10.2_Samples'
-let g:netrw_dirhist_7='/home/jjravi'
-let g:netrw_dirhist_6='/home/jjravi/gpu-bandwidth'
-let g:netrw_dirhist_5='/home/jjravi/gpu-bandwidth/nvidia_version'
-let g:netrw_dirhist_4='/home/jjravi/gpu-bandwidth'
-let g:netrw_dirhist_3='/home/jjravi/open-cuda-mps/cudart'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/jjravi'
+let g:netrw_dirhist_2='/home'
+let g:netrw_dirhist_3='/home/tmnguye7'

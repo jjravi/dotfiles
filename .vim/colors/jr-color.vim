@@ -6,6 +6,8 @@
 
 hi clear
 
+
+
 set background=dark
 let g:colors_name="jr-color"
 
