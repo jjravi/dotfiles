@@ -221,14 +221,14 @@ set mouse=a
 set ttymouse=xterm2
 " }}}
 " Disable arrow keys {{{
-noremap  <Up>     <NOP>
-inoremap <Down>   <NOP>
-inoremap <Left>   <NOP>
-inoremap <Right>  <NOP>
-noremap  <Up>     <NOP>
-noremap  <Down>   <NOP>
-noremap  <Left>   <NOP>
-noremap  <Right>  <NOP>
+"noremap  <Up>     <NOP>
+"inoremap <Down>   <NOP>
+"inoremap <Left>   <NOP>
+"inoremap <Right>  <NOP>
+"noremap  <Up>     <NOP>
+"noremap  <Down>   <NOP>
+"noremap  <Left>   <NOP>
+"noremap  <Right>  <NOP>
 " }}}
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
@@ -243,9 +243,47 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " json
 Plug 'elzr/vim-json'
 
+" comment
+Plug 'preservim/nerdcommenter'
+
 " Initialize plugin system
 call plug#end()
 
+" Nerd Commenter tweaks {{{
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+"nmap <C-/> <leader>c<Space>
+"vmap <C-/> <leader>c<Space>
+nmap <C-_>   <Plug>NERDCommenterToggle
+vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+
+" }}}
+
+
+" airline tweaks {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = '|'
 let g:airline#extensions#tabline#left_alt_sep = '>'
@@ -257,6 +295,7 @@ let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
+" }}}
 " }}}
 
 " Speedup start time by excluding X11
@@ -287,4 +326,16 @@ augroup END
 "highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 set cursorline
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" indicates a fast terminal connection
+set ttyfast
+
+" screen will not redraw while executing macros.. 
+set lazyredraw
+
+set colorcolumn=110
+highlight ColorColumn ctermbg=Black
+
+
+" set synmaxcol=80
 
