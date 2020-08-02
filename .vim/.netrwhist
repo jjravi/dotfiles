@@ -1,5 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/jjravi'
-let g:netrw_dirhist_2='/home'
-let g:netrw_dirhist_3='/home/tmnguye7'
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/jjravi/sources/argobots/build/install/lib'
+let g:netrw_dirhist_8='/home/jjravi/sources/argobots/build/install'
+let g:netrw_dirhist_7='/home/jjravi/.oh-my-zsh'
+let g:netrw_dirhist_6='/home/jjravi/tmp/gds-beta-v0.7.1/samples'
+let g:netrw_dirhist_5='/home/jjravi/tmp/gds-beta-v0.7.1/lib'
+let g:netrw_dirhist_4='/home/jjravi/gds-beta-v0.7.1/samples'
+let g:netrw_dirhist_3='/home/jjravi/gds-beta-v0.7.1'
+let g:netrw_dirhist_2='/home/jjravi'
+let g:netrw_dirhist_1='/home/jjravi/tmp'
+let g:netrw_dirhist_0='/home/jjravi/tmp/gds-beta-v0.7.1'
