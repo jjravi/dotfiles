@@ -313,15 +313,6 @@ map ,* *<C-O>:%s///gn<CR>
 " enable local dir vimrc
 set exrc
 
-" enable relative numbers for focused view
-set number relativenumber
-
-augroup numbertoggle
-  autocmd!
-  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
 "autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold
 "highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 set cursorline
