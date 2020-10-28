@@ -246,6 +246,9 @@ Plug 'elzr/vim-json'
 " comment
 Plug 'preservim/nerdcommenter'
 
+" vim-slime
+Plug 'jpalardy/vim-slime'
+
 " Initialize plugin system
 call plug#end()
 
@@ -272,7 +275,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
 "nmap <C-/> <leader>c<Space>
@@ -296,6 +299,15 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
 " }}}
+
+" vim-slime tweaks {{{
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_default_config = {"socket_name": "default", "target_pane":"{last}"}
+
+" }}}
+
+
 " }}}
 
 " Speedup start time by excluding X11
@@ -321,7 +333,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 " indicates a fast terminal connection
 set ttyfast
 
-" screen will not redraw while executing macros.. 
+" screen will not redraw while executing macros..
 set lazyredraw
 
 set colorcolumn=110
