@@ -141,6 +141,12 @@ set number
 
 " C/C++ specific settings
 autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>2,e0,n0,f0,{0,}0,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*70
+" auto move curly braces to newline
+autocmd FileType c,cpp,cc inoremap <expr> <cr>
+   \   getline(".") =~ '\S\s*{$'                 ? "<bs><cr>{<cr>}<esc>O"
+   \ : getline('.') =~ '^\s*{$'                  ? "<cr>}<esc>O"
+   \ : getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O"
+   \ :                                             "<cr>"
 
 "Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
