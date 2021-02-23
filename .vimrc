@@ -98,9 +98,17 @@ set t_vb=
 set tm=500
 
 " TAB setting{
-   set expandtab        "replace <TAB> with spaces
-   set softtabstop=3
-   set shiftwidth=3
+   " always uses spaces instead of tab characters
+   set expandtab
+
+   " fine tunes the white space
+   set softtabstop=2
+
+   " size of an \"indent\"
+   set shiftwidth=2
+
+   " size of a hard tabstop
+   set tabstop=2
 
    au FileType Makefile set noexpandtab
 "}
@@ -132,7 +140,7 @@ set number
 
 
 " C/C++ specific settings
-autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
+autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>2,e0,n0,f0,{0,}0,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*70
 
 "Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
@@ -182,18 +190,6 @@ map <C-t><C-w> :tabclose<CR>
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
-
-" size of a hard tabstop
-set tabstop=2
-
-" fine tunes the white space
-set softtabstop=2
-
-" always uses spaces instead of tab characters
-set expandtab
-
-" size of an "indent"
-set shiftwidth=2
 
 "" folding
 "set foldmethod=syntax
