@@ -80,7 +80,7 @@ set incsearch
 set nobackup
 
 " copy the previous indentation on autoindenting
-set copyindent
+" set copyindent
 
 " ignore case when searching
 set ignorecase
@@ -151,6 +151,12 @@ function! AutoBracketDrop()
     exec "normal! a{\<Cr>\<Esc>"
   endif
 endfunction
+
+" Python specific settings
+augroup python
+  autocmd!
+  autocmd FileType python setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup end
 
 "Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
