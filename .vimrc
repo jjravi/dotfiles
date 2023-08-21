@@ -205,48 +205,40 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " }}}
 " Toggle Indent {{{
 let g:indent_toggle = 0
-function! SetIndentToFourSpaces()
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
-  let g:indent_toggle = 0
-endfunction
-
 function! SetIndentToTwoSpaces()
   set tabstop=2
   set softtabstop=2
   set shiftwidth=2
+  let g:indent_toggle = 0
+endfunction
+
+function! SetIndentToFourSpaces()
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
   let g:indent_toggle = 1
 endfunction
 
 function! SetCppIndentSettings()
+  set cindent
+  set comments=sr:/*,mb:*,el:*/,://
   if g:indent_toggle == 0
-    set cindent
-    set comments=sr:/*,mb:*,el:*/,:// 
-    set cino=>4,e0,n0,f0,{0,}0,:4,=s,g0,h1s,p4,t0,+2,(2,)20,*70
-  else
-    set cindent
-    set comments=sr:/*,mb:*,el:*/,://
     set cino=>2,e0,n0,f0,{0,}0,:2,=s,g0,h1s,p2,t0,+2,(2,)20,*70
+  else
+    set cino=>4,e0,n0,f0,{0,}0,:4,=s,g0,h1s,p4,t0,+2,(2,)20,*70
   endif
 endfunction
-
-if g:indent_toggle == 0
-  call SetIndentToFourSpaces()
-  call SetCppIndentSettings()
-else
-  call SetIndentToTwoSpaces()
-  call SetCppIndentSettings()
-endif
 
 " Map a key combination to toggle between 4 and 2 spaces
 nnoremap <F8> :call ToggleIndentSettings()<CR>
 
 function! ToggleIndentSettings()
   if g:indent_toggle == 0
-    call SetIndentToTwoSpaces()
-  else
     call SetIndentToFourSpaces()
+    call SetCppIndentSettings()
+  else
+    call SetIndentToTwoSpaces()
+    call SetCppIndentSettings()
   endif
 endfunction
 
