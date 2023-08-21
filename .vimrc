@@ -138,20 +138,6 @@ set number
 "
 ""}
 
-
-" C/C++ specific settings
-autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>2,e0,n0,f0,{0,}0,:2,=s,g0,h1s,p2,t0,+2,(2,)20,*70
-autocmd FileType c,cpp,cc inoremap {<Cr> <Esc>:call AutoBracketDrop()<Cr>a
-
-function! AutoBracketDrop()
-  if col('.') == col('$') - 1
-    substitute /\s*$//
-    exec "normal! A\<Cr>{\<Cr>X\<Cr>}\<Esc>k$x"
-  else
-    exec "normal! a{\<Cr>\<Esc>"
-  endif
-endfunction
-
 " Python specific settings
 autocmd FileType python set cindent foldmethod=indent smartindent expandtab shiftwidth=2 ts=2 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
@@ -216,7 +202,66 @@ set foldnestmax=10
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" }}}
+" Toggle Indent {{{
+let g:indent_toggle = 0
+function! SetIndentToFourSpaces()
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
+  let g:indent_toggle = 0
+endfunction
 
+function! SetIndentToTwoSpaces()
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  let g:indent_toggle = 1
+endfunction
+
+function! SetCppIndentSettings()
+  if g:indent_toggle == 0
+    set cindent
+    set comments=sr:/*,mb:*,el:*/,:// 
+    set cino=>4,e0,n0,f0,{0,}0,:4,=s,g0,h1s,p4,t0,+2,(2,)20,*70
+  else
+    set cindent
+    set comments=sr:/*,mb:*,el:*/,://
+    set cino=>2,e0,n0,f0,{0,}0,:2,=s,g0,h1s,p2,t0,+2,(2,)20,*70
+  endif
+endfunction
+
+if g:indent_toggle == 0
+  call SetIndentToFourSpaces()
+  call SetCppIndentSettings()
+else
+  call SetIndentToTwoSpaces()
+  call SetCppIndentSettings()
+endif
+
+" Map a key combination to toggle between 4 and 2 spaces
+nnoremap <F8> :call ToggleIndentSettings()<CR>
+
+function! ToggleIndentSettings()
+  if g:indent_toggle == 0
+    call SetIndentToTwoSpaces()
+  else
+    call SetIndentToFourSpaces()
+  endif
+endfunction
+
+function! AutoBracketDrop()
+  if col('.') == col('$') - 1
+    substitute /\s*$//
+    exec "normal! A\<Cr>{\<Cr>X\<Cr>}\<Esc>k$x"
+  else
+    exec "normal! a{\<Cr>\<Esc>"
+  endif
+endfunction
+
+" Autocommand to apply indent settings for C and C++ filetypes
+autocmd FileType c,cpp,cc call SetCppIndentSettings()
+autocmd FileType c,cpp,cc inoremap {<Cr> <Esc>:call AutoBracketDrop()<Cr>a
 " }}}
 " Mouse {{{
 " Send more characters for redraws
@@ -351,4 +396,8 @@ highlight ColorColumn ctermbg=Black
 
 
 " set synmaxcol=80
+
+" Highlight non-ascii chars
+autocmd BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
+highlight nonascii ctermfg=red term=standout cterm=reverse
 
